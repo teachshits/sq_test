@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SqTest</title>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1><%= link_to('Test RoR application', root_url) -%></h2>
+<%= raw print_flash_message -%>
+
+<%= yield %>
+
+</body>
+</html>

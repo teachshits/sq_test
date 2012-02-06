@@ -1,0 +1,18 @@
+%div
+  %label(for='user_name') Имя
+  = f.text_field 'name'
+
+%div
+  %label(for='user_contacts') Контакты
+  = f.text_area 'contacts', :style => 'width:400px; height:70px;'
+
+%div
+  %label(for='user_salary') Желаемая зарплата
+  = f.text_field 'salary'
+
+%div
+  = f.check_box 'need_job'
+  %label(for='user_need_job' style='display:inline;') Сейчас ищет работу!
+
+%div{:style => 'margin-top:10px;'}
+  = f.submit 'Сохранить'

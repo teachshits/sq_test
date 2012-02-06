@@ -1,0 +1,10 @@
+%h2
+  Изменить вакансию
+  = link_to(image_tag('view.png'), @vacancy, :title => 'Посмотреть вакансию')
+
+.column
+  = form_for(@vacancy) do |f|
+    = render :partial => 'form', :locals => {:f => f}
+.column
+  = render :partial => 'skills/block', :locals => {:obj => @vacancy}
+.clr

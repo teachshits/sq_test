@@ -1,0 +1,21 @@
+%h3 Вакансии, подходящие работнику «#{link_to(@user.name, @user)}»
+
+%b Умения работника:
+%br/
+= @user.skills.map(&:name).join(', ')
+.spr
+
+.column
+  %h4 Полностью
+  - if @full && @full.any?
+    = render :partial => 'vacancies/card', :collection => @full
+  - else
+    %i Вакансии не найдены
+
+.column
+  %h4 Частично
+  - if @part && @part.any?
+    = render :partial => 'vacancies/card', :collection => @part
+  - else
+    %i Вакансии не найдены
+.clr

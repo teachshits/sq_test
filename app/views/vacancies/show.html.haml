@@ -1,0 +1,27 @@
+%h2
+  Вакансия
+  = link_to(image_tag('edit.png'), [:edit, @vacancy], :title => 'Редактировать')
+
+.label Название:
+.info= @vacancy.title
+.clr
+
+.label Дата добавления:
+.info= @vacancy.created_at.strftime('%d.%m.%Y')
+.clr
+
+.label Дата завершения:
+.info= @vacancy.expire_date.strftime('%d.%m.%Y')
+.clr
+
+.label Зарплата:
+.info= @vacancy.salary
+.clr
+
+.label Контактная информация:
+.info= @vacancy.contacts
+.clr
+
+.label Необходимые умения:
+.info= @vacancy.skills.any? ? @vacancy.skills.map(&:name).join(', ') : 'Нет'
+.clr

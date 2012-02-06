@@ -1,0 +1,21 @@
+%h3 Работники, подходящие на вакансию «#{link_to(@vacancy.title, @vacancy)}»
+
+%b Необходимые умения:
+%br/
+= @vacancy.skills.map(&:name).join(', ')
+.spr
+
+.column
+  %h4 Полностью
+  - if @full && @full.any?
+    = render :partial => 'users/card', :collection => @full
+  - else
+    %i Работники не найдены
+
+.column
+  %h4 Частично
+  - if @part && @part.any?
+    = render :partial => 'users/card', :collection => @part
+  - else
+    %i Работники не найдены
+.clr

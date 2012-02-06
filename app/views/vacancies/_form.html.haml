@@ -1,0 +1,18 @@
+%div
+  %label(for='vacancy_title') Название
+  = f.text_field 'title'
+
+%div
+  %label(for='vacancy_expire_date') Действительна до
+  = f.date_select('expire_date', :use_month_names => ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"], :order => [:day, :month, :year], :default => Date.today)
+
+%div
+  %label(for='vacancy_salary') Зарплата
+  = f.text_field 'salary'
+
+%div
+  %label(for='vacancy_contacts') Контакты
+  = f.text_area 'contacts', :style => 'width:400px; height:70px;'
+
+%div{:style => 'margin-top:10px;'}
+  = f.submit 'Сохранить'

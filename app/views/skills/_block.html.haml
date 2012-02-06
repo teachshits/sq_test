@@ -1,0 +1,16 @@
+%div{:style => 'padding:10px; border:1px solid #ddd;'}
+  %h4 Список умений
+  #skills_div
+    = render :partial => 'skills/list', :object => @skills, :locals => {:obj => obj}
+  .spr
+  Добавить умение:
+  %br/
+  - if @all_skills && @all_skills.any?
+    = form_tag [obj, Skill.new], :remote => true do
+      %select{:name => 'skill_id', :style => 'width:205px;'}
+        = options_for_select(@all_skills.map{|s| [s.name, s.id]})
+      = submit_tag 'Добавить'
+    .clr
+  = form_tag [obj, Skill.new], :remote => true do
+    = text_field_tag 'skill[name]', '', :style => 'width:200px;'
+    = submit_tag 'Добавить новое'

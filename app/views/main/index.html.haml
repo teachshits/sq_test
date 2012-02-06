@@ -1,0 +1,21 @@
+= link_to('Добавить работника', new_user_path, :class => 'button')
+= link_to('Добавить вакансию', new_vacancy_path, :class => 'button')
+
+.block
+  .column
+    %h3 Работники
+    - if @users && @users.any?
+      = render :partial => 'users/card', :collection => @users
+    - else
+      %i Нет ни одного работника
+
+  .column
+    %h3 Вакансии
+    - if @vacancies && @vacancies.any?
+      = render :partial => 'vacancies/card', :collection => @vacancies
+    - else
+      %i Нет ни одной вакансии
+  .clr
+
+.block
+  = render :partial => 'search'

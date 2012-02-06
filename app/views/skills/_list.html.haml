@@ -1,0 +1,9 @@
+- if list && list.any?
+  - list.each do |s|
+    %li
+      = s.name
+      %div{:style => 'float:right;'}
+        = link_to(image_tag('cancel.png'), [obj, s], :method => :delete, :remote => true)
+      .clr
+- else
+  %i Нет умений

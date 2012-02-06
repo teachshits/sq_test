@@ -1,0 +1,18 @@
+%h3 Поиск
+- if @users.any?
+  = form_tag(vacancies_path, :method => :get) do
+    Найти вакансии, подходящие для работника:
+    %select{:name => 'user_id', :style => 'width:300px;'}
+      = options_for_select(@users.map{|u| [u.name, u.id]})
+    = submit_tag 'Найти'
+  .clr
+
+- if @vacancies.any?
+  = form_tag(users_path, :method => :get) do
+    Найти работников, подходящих на вакансию:
+    %select{:name => 'vacancy_id', :style => 'width:300px;'}
+      = options_for_select(@vacancies.map{|v| [v.title, v.id]})
+    = submit_tag 'Найти'
+    
+- if @users.empty? && @vacancies.empty? 
+  %i Нет данных

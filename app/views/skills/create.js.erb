@@ -1,0 +1,5 @@
+<%- if @skill && !@skill.new_record? -%>
+	$('#skills_div').html('<%= escape_javascript(render :partial => "skills/list", :object => @skills, :locals => {:obj => @obj}) -%>');
+<%- else -%>
+	alert('<%= @errors -%>');
+<%- end -%>

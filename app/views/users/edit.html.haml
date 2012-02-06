@@ -1,0 +1,10 @@
+%h2
+  Изменить работника
+  = link_to(image_tag('view.png'), @user, :title => 'Посмотреть анкету')
+
+.column
+  = form_for(@user) do |f|
+    = render :partial => 'form', :locals => {:f => f}
+.column
+  = render :partial => 'skills/block', :locals => {:obj => @user}
+.clr

@@ -1,0 +1,30 @@
+%h2
+  Анкета работника
+  = link_to(image_tag('edit.png'), [:edit, @user], :title => 'Редактировать')
+
+.label Имя:
+.info= @user.name
+.clr
+
+.label Контактная информация:
+.info= @user.contacts
+.clr
+
+.label Желаемая зарплата:
+.info= @user.salary
+.clr
+
+.label Статус поиска работы:
+.info= @user.need_job ? 'Ищет работу' : 'Не ищет работу'
+.clr
+
+.label Умения:
+.info= @user.skills.any? ? @user.skills.map(&:name).join(', ') : 'Нет'
+.clr
+
+- if @vacancies && @vacancies.any?
+  %h3 Подходящие вакансии
+  - @vacancies.each do |v|
+    %li
+      = link_to(v.title, v)
+      = link_to(image_tag('edit.png'), [:edit, v])
